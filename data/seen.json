@@ -27,5 +27,12 @@
     "name" : "Handy",
     "url" : "https://github.com/cjpais/Handy",
     "source" : "seed"
+  }, {
+    "name" : "Instancio",
+    "url" : "https://github.com/instancio/instancio",
+    "tagline" : "Geração automática de objetos reais para testes em Java.",
+    "sent_at" : "2026-10-05T17:31:04.952521447-03:00",
+    "source" : "daily",
+    "theme_match" : true
   } ]
 }
