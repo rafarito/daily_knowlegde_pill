@@ -20,17 +20,19 @@ public class Verifier {
 
     private final HttpClient http;
     private final String githubApiBase;
+    private final String githubToken;
 
-    public Verifier() {
+    public Verifier(String githubToken) {
         this(HttpClient.newBuilder()
                 .followRedirects(HttpClient.Redirect.NORMAL)
                 .connectTimeout(Duration.ofSeconds(15))
-                .build(), "https://api.github.com");
+                .build(), "https://api.github.com", githubToken);
     }
 
-    Verifier(HttpClient http, String githubApiBase) {
+    Verifier(HttpClient http, String githubApiBase, String githubToken) {
         this.http = http;
         this.githubApiBase = githubApiBase;
+        this.githubToken = githubToken;
     }
 
     public Verification verify(String url) {
@@ -48,11 +50,17 @@ public class Verifier {
     /** Vazio quando a API não deu uma resposta conclusiva (rate limit, erro de rede, 5xx). */
     Optional<Verification> fromGithubApi(String ownerRepo) {
         try {
-            HttpRequest req = HttpRequest.newBuilder(URI.create(githubApiBase + "/repos/" + ownerRepo))
+            HttpRequest.Builder reqBuilder = HttpRequest.newBuilder(URI.create(githubApiBase + "/repos/" + ownerRepo))
                     .header("Accept", "application/vnd.github+json")
                     .header("User-Agent", UA)
                     .timeout(Duration.ofSeconds(20))
-                    .GET().build();
+                    .GET();
+            
+            if (githubToken != null && !githubToken.isBlank()) {
+                reqBuilder.header("Authorization", "Bearer " + githubToken);
+            }
+            
+            HttpRequest req = reqBuilder.build();
             HttpResponse<String> res = http.send(req, HttpResponse.BodyHandlers.ofString());
             if (res.statusCode() == 404) {
                 return Optional.of(Verification.notFound("repositório não existe no GitHub: " + ownerRepo));

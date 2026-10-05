@@ -39,7 +39,7 @@ class AgyClientTest {
                 exit %d
                 """.formatted(args, args, out, exitCode));
         Files.setPosixFilePermissions(script, PosixFilePermissions.fromString("rwx------"));
-        Config cfg = new Config(tmp, null, null, script.toString(), "gemini-3.1-pro-high", "1m", 2);
+        Config cfg = new Config(tmp, null, null, script.toString(), "gemini-3.1-pro-high", "1m", 2, null);
         return new AgyClient(cfg, "{\"type\":\"object\"}", LocalDate.of(2026, 10, 5));
     }
 

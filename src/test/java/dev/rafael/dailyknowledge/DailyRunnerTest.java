@@ -50,6 +50,7 @@ class DailyRunnerTest {
         final Map<String, Verification> results;
 
         FakeVerifier(Map<String, Verification> results) {
+            super(null);
             this.results = results;
         }
 

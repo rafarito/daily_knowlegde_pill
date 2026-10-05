@@ -19,7 +19,8 @@ public record Config(
         String agyBin,
         String agyModel,
         String agyTimeout,
-        int maxAttempts) {
+        int maxAttempts,
+        String githubToken) {
 
     public static Config load(Path projectDir) throws IOException {
         Map<String, String> values = new HashMap<>();
@@ -35,7 +36,8 @@ public record Config(
                 values.getOrDefault("AGY_BIN", "/usr/bin/agy"),
                 values.getOrDefault("AGY_MODEL", "gemini-3.1-pro-high"),
                 values.getOrDefault("AGY_TIMEOUT", "10m"),
-                Integer.parseInt(values.getOrDefault("MAX_ATTEMPTS", "2")));
+                Integer.parseInt(values.getOrDefault("MAX_ATTEMPTS", "2")),
+                blankToNull(values.get("GITHUB_TOKEN")));
     }
 
     static Map<String, String> parseEnv(String content) {

@@ -28,13 +28,14 @@ class ConfigTest {
 
     @Test
     void parsesTimeout() {
-        Config c = new Config(null, null, null, "agy", "m", "10m", 2);
+        Config c = new Config(null, null, null, "agy", "m", "10m", 2, null);
         assertEquals(Duration.ofMinutes(10), c.agyTimeoutDuration());
     }
 
     @Test
     void toStringNeverLeaksToken() {
-        Config c = new Config(null, "SECRET-TOKEN", "1", "agy", "m", "10m", 2);
+        Config c = new Config(null, "SECRET-TOKEN", "1", "agy", "m", "10m", 2, "GH-TOKEN");
         assertFalse(c.toString().contains("SECRET-TOKEN"));
+        assertFalse(c.toString().contains("GH-TOKEN"));
     }
 }

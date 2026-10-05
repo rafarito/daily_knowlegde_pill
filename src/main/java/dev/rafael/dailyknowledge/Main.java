@@ -50,7 +50,7 @@ public final class Main {
         if (!weeklyOnly) {
             String schema = PromptBuilder.readResource("/discovery.schema.json");
             DailyRunner runner = new DailyRunner(today, cfg.maxAttempts(), store, PromptBuilder.fromResource(),
-                    new AgyClient(cfg, schema, today), new Verifier(), sender, !dryRun,
+                    new AgyClient(cfg, schema, today), new Verifier(cfg.githubToken()), sender, !dryRun,
                     () -> ZonedDateTime.now(ZONE));
             try {
                 Optional<Discovery> sent = runner.run();
