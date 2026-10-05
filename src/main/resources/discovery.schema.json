@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": [
+    "name", "url", "website", "category", "theme_match", "license", "language",
+    "tagline", "what_it_does", "context_and_need", "origin", "why_interesting",
+    "try_it", "alternatives", "sources"
+  ],
+  "properties": {
+    "name": {"type": "string"},
+    "url": {"type": "string"},
+    "website": {"type": ["string", "null"]},
+    "category": {"type": "string", "enum": ["biblioteca", "cli", "self-hosted", "desktop", "dev-tool", "data", "ai", "outro"]},
+    "theme_match": {"type": "boolean"},
+    "license": {"type": "string"},
+    "language": {"type": "string"},
+    "tagline": {"type": "string"},
+    "what_it_does": {"type": "string"},
+    "context_and_need": {"type": "string"},
+    "origin": {"type": ["string", "null"]},
+    "why_interesting": {"type": "string"},
+    "try_it": {"type": "string"},
+    "alternatives": {"type": "array", "items": {"type": "string"}},
+    "sources": {"type": "array", "items": {"type": "string"}}
+  }
+}

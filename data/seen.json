@@ -1,0 +1,31 @@
+{
+  "projects" : [ {
+    "name" : "Vendure",
+    "url" : "https://github.com/vendurehq/vendure",
+    "source" : "seed"
+  }, {
+    "name" : "Nextcloud",
+    "url" : "https://github.com/nextcloud/server",
+    "source" : "seed"
+  }, {
+    "name" : "Pandoc",
+    "url" : "https://github.com/jgm/pandoc",
+    "source" : "seed"
+  }, {
+    "name" : "Odysseus",
+    "url" : "https://github.com/odysseus-dev/odysseus",
+    "source" : "seed"
+  }, {
+    "name" : "Graphify",
+    "url" : "https://github.com/Graphify-Labs/graphify",
+    "source" : "seed"
+  }, {
+    "name" : "OpenLogi",
+    "url" : "https://github.com/AprilNEA/OpenLogi",
+    "source" : "seed"
+  }, {
+    "name" : "Handy",
+    "url" : "https://github.com/cjpais/Handy",
+    "source" : "seed"
+  } ]
+}
