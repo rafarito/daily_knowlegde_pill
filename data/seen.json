@@ -34,5 +34,12 @@
     "sent_at" : "2026-10-05T17:31:04.952521447-03:00",
     "source" : "daily",
     "theme_match" : true
+  }, {
+    "name" : "Posting",
+    "url" : "https://github.com/darrenburns/posting",
+    "tagline" : "Um cliente HTTP nativo do terminal (TUI) elegante e eficiente.",
+    "sent_at" : "2026-10-06T08:01:15.059966364-03:00",
+    "source" : "daily",
+    "theme_match" : true
   } ]
 }
