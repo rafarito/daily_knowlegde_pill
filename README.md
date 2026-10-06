@@ -26,13 +26,14 @@ resultado para o Telegram. Aos domingos, envia também um resumo da semana.
 ## 2. Configuração
 
 ```bash
-cp .env.example .env   # preencha TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID
+cp .env.example .env   # preencha TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID e GITHUB_TOKEN
 ```
 
 | Variável | Padrão | Descrição |
 |---|---|---|
 | `TELEGRAM_BOT_TOKEN` | — | token do bot (obrigatório, exceto no `--dry-run`) |
 | `TELEGRAM_CHAT_ID` | — | chat que recebe as mensagens |
+| `GITHUB_TOKEN` | — | PAT do GitHub (sem scopes) para evitar rate limit de IP (recomendado) |
 | `AGY_BIN` | `/usr/bin/agy` | caminho do CLI |
 | `AGY_MODEL` | `gemini-3.1-pro-high` | modelo (`agy models` lista os disponíveis) |
 | `AGY_TIMEOUT` | `10m` | tempo máximo por tentativa (`s`, `m`, `h`) |
