@@ -54,8 +54,8 @@ O jar descobre a raiz do projeto pela própria localização (`target/..`), ent�
 
 Acrescente esta linha com `crontab -e`, sem apagar as entradas existentes:
 
-```
-0 8 * * * /usr/bin/java -jar /home/rafael/Documentos/projetos/daily_knowlegde_everyday/target/daily-knowledge.jar >> /home/rafael/Documentos/projetos/daily_knowlegde_everyday/logs/cron.log 2>&1
+```bash
+0 8 * * * /usr/bin/java -jar /caminho/para/o/projeto/target/daily-knowledge.jar >> /caminho/para/o/projeto/logs/cron.log 2>&1
 ```
 
 O cron só dispara se o PC estiver ligado às 08:00.
